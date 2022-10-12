@@ -11,7 +11,9 @@
 
 ## 2022年10月12日
 
- 删除无用文件 
+删除无用文件 
+添加了一个简单的登录接口 改了GitHub的用户名 和邮箱
+https://github.com/geniuslmqq/ddgl-Server.git
  
 ## 2022年10月13日
 
