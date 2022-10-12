@@ -1,6 +1,6 @@
 import { Global, Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { 用户Schema,订单Schema } from './schemas/ues接口';
+import { 用户Schema,订单Schema } from './接口';
 
 
 const M数据库用户集合 = MongooseModule.forFeature([      // 定义数据库模块

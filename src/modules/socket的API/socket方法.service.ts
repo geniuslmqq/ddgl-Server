@@ -2,11 +2,13 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { log } from 'console';
 import { Model } from 'mongoose';
-import { 用户类, 订单类 } from 'src/db/schemas/interface/接口';
+import { 用户类, 订单类 } from 'src/db/接口';
 import { 日志 } from 'src/main';
 
 @Injectable()
 export class C客户端接口的方法类 {
+  //constructor 通过注入的方式，将用户集合控制器注入到类中
+  //用 用户集合控制 来控制数据库的操作
   constructor(
     @InjectModel('M用户控制模块') private 用户集合控制: Model<用户类>,
     @InjectModel('M订单控制模块') private 订单集合控制: Model<订单类>,

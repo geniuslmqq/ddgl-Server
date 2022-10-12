@@ -1,6 +1,6 @@
 import { Prop, Schema } from '@nestjs/mongoose';
-import { ApiProperty } from '@nestjs/swagger';
 import { Document } from 'mongoose';
+import { SchemaFactory } from "@nestjs/mongoose";
 
 // 用户的数据模型
 @Schema()
@@ -13,6 +13,8 @@ export class 用户类 extends Document {       // 定义数据模型 之后通�
     @Prop()       手机号: string;
 
 }
+export const 用户Schema = SchemaFactory.createForClass(用户类);  // 用一个用户类 创建一个Schema对象
+
 
 //旧订单的数据模型
 @Schema()
@@ -33,6 +35,7 @@ export class 订单类 extends Document {       // 定义数据模型 之后通�
     @Prop()    备注   : string;
 
 }
+export const 订单Schema = SchemaFactory.createForClass(订单类);  // 用一个订单类 创建一个Schema对象
 
 // 新订单的数据模型
 @Schema()
@@ -53,3 +56,5 @@ export class 镜片类 extends Document {       // 定义数据模型 之后通�
     @Prop()    备注   : string;
 
 }
+
+

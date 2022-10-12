@@ -1,8 +1,8 @@
 import { WebSocketGateway, SubscribeMessage, MessageBody, ConnectedSocket } from '@nestjs/websockets';
-import { C客户端接口的方法类 } from './socket-test.service';
+import { C客户端接口的方法类 } from './socket方法.service';
 import { Logger } from '@nestjs/common';
 import { Socket } from 'socket.io';
-import { 用户类,订单类 } from 'src/db/schemas/interface/接口';
+import { 用户类,订单类 } from 'src/db/接口';
 
 // 创建一个网关，用于接收客户端的请求 端口号为8081 允许跨域请求
 @WebSocketGateway(8081, {
@@ -11,6 +11,9 @@ import { 用户类,订单类 } from 'src/db/schemas/interface/接口';
   },
 })
 
+// 定义一个类，用于处理客户端的请求  
+// 用SubscribeMessage配对
+// 用 emit() 发送消息给客户端 
 export class C客户端接口的控制类 {
   constructor(private readonly 服务功能: C客户端接口的方法类) { }
 

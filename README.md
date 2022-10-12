@@ -9,4 +9,5 @@
  MongooseModule.forRoot('mongodb://geniuslmt:geniuslmt@localhost:27017', { dbName: 'data' }), 
  端口: 27017 账户: geniuslmt 密码: geniuslmt  数据库: data
 
-## Installation
+## 2022年10月12日
+ 删除无用文件
