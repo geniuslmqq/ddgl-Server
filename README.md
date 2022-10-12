@@ -14,5 +14,7 @@
 删除无用文件 
 添加了一个简单的登录接口 改了GitHub的用户名和邮箱
 https://github.com/geniuslmqq/ddgl-Server.git
+
+更改默认分支 main
  
 ## 2022年10月13日
