@@ -6,8 +6,9 @@
 
 ## 用mongodb做数据库
 
- MongooseModule.forRoot('mongodb://geniuslmt:geniuslmt@localhost:27017', { dbName: 'data' }), 
- 端口: 27017 账户: geniuslmt 密码: geniuslmt  数据库: data
+ MongooseModule.forRoot('mongodb://用户名:密码@localhost:27017', { dbName: 'data' }), 
+ 端口: 27017   数据库: data
 
 ## 2022年10月12日
+
  删除无用文件
