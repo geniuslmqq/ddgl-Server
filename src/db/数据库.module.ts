@@ -25,7 +25,7 @@ const M数据库订单集合 = MongooseModule.forFeature([      // 定义数据�
     imports: 
         [
             // 定义数据库连接 'mongodb://用户名:密码@地址:端口/数据库名?options...') 这是个模块
-            MongooseModule.forRoot('mongodb://geniuslmt:geniuslmt@localhost:27017', { dbName: 'data' }), 
+            MongooseModule.forRoot('mongodb://geniuslmt:geniuslmt@120.53.103.135:27017', { dbName: 'data' }), 
             // 这里是要导出的模块
             M数据库用户集合,M数据库订单集合,                        
         ],
