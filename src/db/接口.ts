@@ -19,20 +19,22 @@ export const 用户Schema = SchemaFactory.createForClass(用户类);  // 用一�
 //旧订单的数据模型
 @Schema()
 export class 订单类 extends Document {       // 定义数据模型 之后通过这个class建立对象
-    @Prop()    _id  : string;
+    @Prop()    订单号  : string;
+    @Prop()    年    : string;
+    @Prop()    月    : string;
+    @Prop()    日    : string;
+    @Prop()    镜片下单日: string;
     @Prop()    收件人  : string;
     @Prop()    旺旺名  : string;
-    @Prop()    镜片下单日: string;
     @Prop()    镜片   : string;
     @Prop()    右近视  : string;
     @Prop()    右散光  : string;
     @Prop()    右轴向  : string;
-    @Prop()    左近视  : string;
-    @Prop()    左散光  : string;
-    @Prop()    左轴向  : string;
-    @Prop()    右瞳距  : string;
-    @Prop()    左瞳距  : string;
-    @Prop()    备注   : string;
+    @Prop()    左近视: string;
+    @Prop()    左散光: string;
+    @Prop()    左轴向: string;
+    @Prop()    瞳距: string;
+    @Prop()    备注: string;
 
 }
 export const 订单Schema = SchemaFactory.createForClass(订单类);  // 用一个订单类 创建一个Schema对象
@@ -40,20 +42,10 @@ export const 订单Schema = SchemaFactory.createForClass(订单类);  // 用一�
 // 新订单的数据模型
 @Schema()
 export class 镜片类 extends Document {       // 定义数据模型 之后通过这个class建立对象
-    @Prop()    _id  : string;
-    @Prop()    收件人  : string;
-    @Prop()    旺旺名  : string;
-    @Prop()    镜片下单日: string;
-    @Prop()    镜片   : string;
-    @Prop()    右近视  : string;
-    @Prop()    右散光  : string;
-    @Prop()    右轴向  : string;
-    @Prop()    左近视  : string;
-    @Prop()    左散光  : string;
-    @Prop()    左轴向  : string;
-    @Prop()    右瞳距  : string;
-    @Prop()    左瞳距  : string;
-    @Prop()    备注   : string;
+    @Prop()    镜片: string;
+    @Prop()    品牌: string;
+    @Prop()    系列: string;
+
 
 }
 

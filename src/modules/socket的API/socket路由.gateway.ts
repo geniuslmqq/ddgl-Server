@@ -62,9 +62,12 @@ export class C客户端接口的控制类 {
   获取旧订单数据() {
     return this.服务功能.CF旧订单数据();
   }
-  @SubscribeMessage('修修改与添加订单')
+  @SubscribeMessage('修改与添加订单')
   修修改与添加订单(@MessageBody() 数据: 订单类) {
     return this.服务功能.CF修改与添加订单(数据);
   }
+
+
+
 
 }
