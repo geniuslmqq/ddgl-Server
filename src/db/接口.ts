@@ -20,6 +20,7 @@ export const 用户Schema = SchemaFactory.createForClass(用户类);  // 用一�
 @Schema()
 export class 订单类 extends Document {       // 定义数据模型 之后通过这个class建立对象
     @Prop()    订单号  : string;
+    @Prop()    删除信息 : string;
     @Prop()    年    : string;
     @Prop()    月    : string;
     @Prop()    日    : string;

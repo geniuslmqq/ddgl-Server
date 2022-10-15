@@ -68,20 +68,22 @@ export class C客户端接口的方法类 {
 
   }
 
-  //订单相关
+//订单相关
+
+//获得所有订单
   public async CF旧订单数据() {
     let 查找结果 = await this.订单集合控制.find();
     日志.log("查询到的旧订单数:" + 查找结果.length);
     return 查找结果
   }
-
+//添加修改订单
   public async CF修改与添加订单(订单: 订单类) {
-    日志.log(订单);
     //upsert: true, 没有用户名就添加，有就修改
     //添加以订单号为主
     await this.订单集合控制.updateOne({ 订单号: 订单.订单号 }, {
       $set: {
         订单号: 订单.订单号,
+        删除信息 : 订单.删除信息,
         年:订单.年,
         月:订单.月,
         日:订单.日,
@@ -101,15 +103,17 @@ export class C客户端接口的方法类 {
         备注: 订单.备注,
       }
     }, { upsert: true });
-
-
-
-
-    let 修改结果 = await this.订单集合控制.find({ 收件人: 订单.收件人 });
+    let 修改结果 = await this.订单集合控制.find({订单号: 订单.订单号 });
     日志.log(`修改结果为${修改结果[0]}`);
     return `修改结果为${修改结果[0]}`;
   }
 
+
+  public async CF删除订单(订单: 订单类) {
+    await this.订单集合控制.deleteOne({ 订单号: 订单.订单号 });
+    日志.log(`删除${订单.订单号}已删除`);
+    return `订单${订单.订单号}已删除`;
+  }
 
 }
 
