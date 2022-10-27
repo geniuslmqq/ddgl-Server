@@ -43,11 +43,29 @@ export const 订单Schema = SchemaFactory.createForClass(订单类);  // 用一�
 // 新订单的数据模型
 @Schema()
 export class 镜片类 extends Document {       // 定义数据模型 之后通过这个class建立对象
-    @Prop()    镜片: string;
-    @Prop()    品牌: string;
-    @Prop()    系列: string;
+    @Prop()    镜片名: string;
+    @Prop()    品牌名: string;
+    @Prop()    系列名: string;
+    @Prop()    染色 : string;
+    @Prop()    变色 : string;
+    @Prop()    高散 : string;
+    @Prop()    车房 : string;
 
+    @Prop()    最高近视光度: number;
+    @Prop()    最高散光光度: number;
+    @Prop()    最高联合光度: number;
+    @Prop()    最高远视光度: number;
+    @Prop()    最高远视散光: number;
+      
+
+    @Prop()    供应商 : string;
+    @Prop()    售价  : number;
+    @Prop()    进货价 : number;
+    @Prop()    湖北和益: number;
+    @Prop()    湖北蔡司: number;
+    @Prop()    上海老周: number;
+    @Prop()    丹阳臻视: number;
 
 }
-
+export const 镜片Schema = SchemaFactory.createForClass(镜片类);  // 用一个订单类 创建一个Schema对象
 

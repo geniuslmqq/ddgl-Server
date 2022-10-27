@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { log } from 'console';
 import { Model } from 'mongoose';
-import { 用户类, 订单类 } from 'src/db/接口';
+import { 用户类, 订单类 ,镜片类 } from 'src/db/接口';
 import { 日志 } from 'src/main';
 
 @Injectable()
@@ -12,6 +12,7 @@ export class C客户端接口的方法类 {
   constructor(
     @InjectModel('M用户控制模块') private 用户集合控制: Model<用户类>,
     @InjectModel('M订单控制模块') private 订单集合控制: Model<订单类>,
+    @InjectModel('M镜片控制模块') private 镜片集合控制: Model<镜片类>,
   ) { } // 创建一个Model对象，用于操作数据库
 
 
@@ -113,6 +114,59 @@ export class C客户端接口的方法类 {
     await this.订单集合控制.deleteOne({ 订单号: 订单.订单号 });
     日志.log(`删除${订单.订单号}已删除`);
     return `订单${订单.订单号}已删除`;
+  }
+
+//镜片相关
+
+//获得镜片数据
+  public async CF镜片数据() {
+    let 查找结果 = await this.镜片集合控制.find();
+    日志.log("查询到的镜片数据:" + 查找结果.length);
+    return 查找结果
+  }
+//添加修改镜片 
+  public async CF修改与添加镜片(镜片: 镜片类) {
+    //upsert: true, 没有镜片名就添加，有就修改
+    //添加以镜片名为
+    await this.镜片集合控制.updateOne({ 镜片名: 镜片.镜片名 }, {
+      $set: {
+        镜片名  : 镜片.镜片名,
+        品牌名  : 镜片.品牌名,
+        系列名  : 镜片.系列名,
+        染色   : 镜片.染色,
+        变色   : 镜片.变色,
+        高散   : 镜片.高散,
+        车房   : 镜片.车房,
+        最高近视光: 镜片.最高近视光度,
+        最高散光光: 镜片.最高散光光度,
+        最高联合光: 镜片.最高联合光度,
+        最高远视光: 镜片.最高远视光度,
+        最高远视散: 镜片.最高远视散光,
+        供应商  : 镜片.供应商,
+        售价   : 镜片.售价,
+        进货价  : 镜片.进货价,
+        湖北和益 : 镜片.湖北和益,
+        湖北蔡司 : 镜片.湖北蔡司,
+        上海老周 : 镜片.上海老周,
+        丹阳臻视 : 镜片.丹阳臻视,
+      }
+    }, { upsert: true });
+    let 修改结果 = await this.镜片集合控制.find({镜片名: 镜片.镜片名 });
+    日志.log(`修改结果为${修改结果[0]}`);
+    return 修改结果[0];
+  }
+
+//删除镜片
+  public async CF删除镜片(_id: any) {
+    await this.镜片集合控制.deleteOne({ _id: _id});
+    日志.log(`_id${_id}已删除`);
+    return `_id${_id}已删除`;
+  }
+//创建镜片
+  public async CF创建镜片(镜片: 镜片类) {
+    日志.log(镜片)
+    await new this.镜片集合控制(镜片).save();
+    return `${镜片.镜片名}已经添加到数据库`;
   }
 
 }
