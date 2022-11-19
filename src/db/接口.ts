@@ -46,10 +46,9 @@ export class 镜片类 extends Document {       // 定义数据模型 之后通�
     @Prop()    镜片名: string;
     @Prop()    品牌名: string;
     @Prop()    系列名: string;
-    @Prop()    染色 : string;
-    @Prop()    变色 : string;
-    @Prop()    高散 : string;
-    @Prop()    车房 : string;
+    @Prop()    折射率: string;
+    @Prop()    染色变色 : string;
+    @Prop()    高散车房 : string;
 
     @Prop()    最高近视光度: number;
     @Prop()    最高散光光度: number;
